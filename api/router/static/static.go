@@ -8,13 +8,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/micro/go-micro/v2/api"
-	"github.com/micro/go-micro/v2/api/router"
-	"github.com/micro/go-micro/v2/api/router/util"
-	"github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/metadata"
-	"github.com/micro/go-micro/v2/registry"
-	rutil "github.com/micro/go-micro/v2/util/registry"
+	"github.com/yudidi/go-micro/v2/api"
+	"github.com/yudidi/go-micro/v2/api/router"
+	"github.com/yudidi/go-micro/v2/api/router/util"
+	"github.com/yudidi/go-micro/v2/logger"
+	"github.com/yudidi/go-micro/v2/metadata"
+	"github.com/yudidi/go-micro/v2/registry"
+	rutil "github.com/yudidi/go-micro/v2/util/registry"
 )
 
 type endpoint struct {

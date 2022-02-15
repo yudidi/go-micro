@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/lib/pq"
-	"github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/store"
 	"github.com/pkg/errors"
+	"github.com/yudidi/go-micro/v2/logger"
+	"github.com/yudidi/go-micro/v2/store"
 )
 
 // DefaultDatabase is the namespace that the sql store

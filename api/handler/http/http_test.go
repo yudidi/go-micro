@@ -6,13 +6,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/micro/go-micro/v2/api/handler"
-	"github.com/micro/go-micro/v2/api/resolver"
-	"github.com/micro/go-micro/v2/api/resolver/vpath"
-	"github.com/micro/go-micro/v2/api/router"
-	regRouter "github.com/micro/go-micro/v2/api/router/registry"
-	"github.com/micro/go-micro/v2/registry"
-	"github.com/micro/go-micro/v2/registry/memory"
+	"github.com/yudidi/go-micro/v2/api/handler"
+	"github.com/yudidi/go-micro/v2/api/resolver"
+	"github.com/yudidi/go-micro/v2/api/resolver/vpath"
+	"github.com/yudidi/go-micro/v2/api/router"
+	regRouter "github.com/yudidi/go-micro/v2/api/router/registry"
+	"github.com/yudidi/go-micro/v2/registry"
+	"github.com/yudidi/go-micro/v2/registry/memory"
 )
 
 func testHttp(t *testing.T, path, service, ns string) {

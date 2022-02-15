@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/micro/go-micro/v2/config/source"
+	"github.com/yudidi/go-micro/v2/config/source"
 )
 
 type file struct {

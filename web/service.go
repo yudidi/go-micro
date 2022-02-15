@@ -13,16 +13,16 @@ import (
 	"time"
 
 	"github.com/micro/cli/v2"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/registry"
-	maddr "github.com/micro/go-micro/v2/util/addr"
-	authutil "github.com/micro/go-micro/v2/util/auth"
-	"github.com/micro/go-micro/v2/util/backoff"
-	mhttp "github.com/micro/go-micro/v2/util/http"
-	mnet "github.com/micro/go-micro/v2/util/net"
-	signalutil "github.com/micro/go-micro/v2/util/signal"
-	mls "github.com/micro/go-micro/v2/util/tls"
+	"github.com/yudidi/go-micro/v2"
+	"github.com/yudidi/go-micro/v2/logger"
+	"github.com/yudidi/go-micro/v2/registry"
+	maddr "github.com/yudidi/go-micro/v2/util/addr"
+	authutil "github.com/yudidi/go-micro/v2/util/auth"
+	"github.com/yudidi/go-micro/v2/util/backoff"
+	mhttp "github.com/yudidi/go-micro/v2/util/http"
+	mnet "github.com/yudidi/go-micro/v2/util/net"
+	signalutil "github.com/yudidi/go-micro/v2/util/signal"
+	mls "github.com/yudidi/go-micro/v2/util/tls"
 )
 
 type service struct {

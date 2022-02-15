@@ -7,11 +7,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/codec/json"
-	"github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/registry"
 	nats "github.com/nats-io/nats.go"
+	"github.com/yudidi/go-micro/v2/broker"
+	"github.com/yudidi/go-micro/v2/codec/json"
+	"github.com/yudidi/go-micro/v2/logger"
+	"github.com/yudidi/go-micro/v2/registry"
 )
 
 type natsBroker struct {

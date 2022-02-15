@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/v2/agent/input"
 	"github.com/nlopes/slack"
+	"github.com/yudidi/go-micro/v2/agent/input"
 )
 
 // Satisfies the input.Conn interface

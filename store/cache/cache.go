@@ -4,9 +4,9 @@ package cache
 import (
 	"fmt"
 
-	"github.com/micro/go-micro/v2/store"
-	"github.com/micro/go-micro/v2/store/memory"
 	"github.com/pkg/errors"
+	"github.com/yudidi/go-micro/v2/store"
+	"github.com/yudidi/go-micro/v2/store/memory"
 )
 
 type cache struct {

@@ -9,9 +9,9 @@ import (
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
-	"github.com/micro/go-micro/v2/codec"
-	"github.com/micro/go-micro/v2/codec/bytes"
 	"github.com/oxtoacart/bpool"
+	"github.com/yudidi/go-micro/v2/codec"
+	"github.com/yudidi/go-micro/v2/codec/bytes"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/encoding"
 )
