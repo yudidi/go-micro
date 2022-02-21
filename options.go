@@ -26,7 +26,7 @@ type Options struct {
 	Broker    broker.Broker
 	Cmd       cmd.Cmd
 	Config    config.Config
-	Client    client.Client
+	Client    client.Client // 接口对象 每个组件都是接口,可插拔具体的实现类
 	Server    server.Server
 	Store     store.Store
 	Registry  registry.Registry

@@ -8,10 +8,10 @@ import (
 	"github.com/yudidi/go-micro/v2/codec"
 )
 
-// Client is the interface used to make requests to services.
-// It supports Request/Response via Transport and Publishing via the Broker.
-// It also supports bidirectional streaming of requests.
-type Client interface {
+// Client is the interface used to make requests to services.  Client 是用来向服务发出请求的接口。
+// It supports Request/Response via Transport and Publishing via the Broker. 它支持通过传输的请求/响应和通过代理的发布。
+// It also supports bidirectional streaming of requests. 它还支持请求的双向流。
+type Client interface { // 目前有2个实现类,在同包的文件下:  client/rpc_client.go:23 和 client/grpc/grpc.go:28
 	Init(...Option) error
 	Options() Options
 	NewMessage(topic string, msg interface{}, opts ...MessageOption) Message

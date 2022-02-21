@@ -35,11 +35,11 @@ func newService(opts ...Option) Service {
 	// service name
 	serviceName := options.Server.Options().Name
 
-	// we pass functions to the wrappers since the values can change during initialisation
-	authFn := func() auth.Auth { return options.Server.Options().Auth }
+	// we pass functions to the wrappers since the values can change during initialisation 我们将函数传递给包装器，因为值可以在初始化期间更改
+	authFn := func() auth.Auth { return options.Server.Options().Auth } // 返回接口对象
 	cacheFn := func() *client.Cache { return options.Client.Options().Cache }
 
-	// wrap client to inject From-Service header on any calls
+	// wrap client to inject From-Service header on any calls 包装客户端以在任何调用上注入 From-Service 标头
 	options.Client = wrapper.FromService(serviceName, options.Client)
 	options.Client = wrapper.TraceCall(serviceName, trace.DefaultTracer, options.Client)
 	options.Client = wrapper.CacheClient(cacheFn, options.Client)
