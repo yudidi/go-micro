@@ -28,6 +28,7 @@ type service struct {
 	once sync.Once
 }
 
+// 1.初始化一个Service接口的实现类对象
 func newService(opts ...Option) Service {
 	service := new(service)
 	options := newOptions(opts...)
@@ -64,14 +65,14 @@ func (s *service) Name() string {
 
 // Init initialises options. Additionally it calls cmd.Init
 // which parses command line flags. cmd.Init is only called
-// on first Init.
+// on first Init. // Init 初始化选项。 此外，它调用解析命令行标志的 cmd.Init。 cmd.Init 仅在第一个 Init 时调用。
 func (s *service) Init(opts ...Option) {
 	// process options
 	for _, o := range opts {
 		o(&s.opts)
 	}
 
-	s.once.Do(func() {
+	s.once.Do(func() { // https://geektutu.com/post/hpg-sync-once.html
 		// setup the plugins
 		for _, p := range strings.Split(os.Getenv("MICRO_PLUGIN"), ",") {
 			if len(p) == 0 {
@@ -95,8 +96,14 @@ func (s *service) Init(opts ...Option) {
 			s.opts.Cmd.App().Name = s.Server().Options().Name
 		}
 
-		// Initialise the command flags, overriding new service
-		if err := s.opts.Cmd.Init(
+		// Initialise the command flags, overriding new service // 初始化命令标志，覆盖新服务
+		// 参考:[go micro(2.9.1版本) server 启动分析] https://segmentfault.com/a/1190000023522332
+		// s.once.Do()，只执行一次
+		//加载插件
+		//设置cmd名字
+		//初始化命令行参数，覆盖service中的属性
+		//显式地将cmd名字设置为服务名
+		if err := s.opts.Cmd.Init( // TODO
 			cmd.Auth(&s.opts.Auth),
 			cmd.Broker(&s.opts.Broker),
 			cmd.Registry(&s.opts.Registry),
@@ -111,7 +118,7 @@ func (s *service) Init(opts ...Option) {
 			logger.Fatal(err)
 		}
 
-		// Explicitly set the table name to the service name
+		// Explicitly set the table name to the service name // 将表名显式设置为服务名
 		name := s.opts.Cmd.App().Name
 		s.opts.Store.Init(store.Table(name))
 	})
