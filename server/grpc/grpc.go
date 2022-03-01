@@ -367,7 +367,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 
 		// define the handler func
 		fn := func(ctx context.Context, req server.Request, rsp interface{}) (err error) {
-			defer func() {
+			defer func() { // 遇到一个线上问题. 当商品服务go-micro提供的接口内部有panic,会走到这里进行recover.
 				if r := recover(); r != nil {
 					if logger.V(logger.ErrorLevel, logger.DefaultLogger) {
 						logger.Error("panic recovered: ", r)
