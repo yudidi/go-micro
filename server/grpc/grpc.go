@@ -311,7 +311,7 @@ func (g *grpcServer) handler(srv interface{}, stream grpc.ServerStream) error {
 	}
 
 	// process unary
-	if !mtype.stream {
+	if !mtype.stream { // 似乎是这里进行go-micro请求的处理,内部一个for循环
 		return g.processRequest(stream, service, mtype, ct, ctx)
 	}
 
@@ -375,7 +375,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 					}
 					err = errors.InternalServerError("go.micro.server", "panic recovered: %v", r)
 				}
-			}()
+			}() //这里通过反射调用,指定的方法. TODO
 			returnValues = function.Call([]reflect.Value{service.rcvr, mtype.prepareContext(ctx), reflect.ValueOf(argv.Interface()), reflect.ValueOf(rsp)})
 
 			// The return value for the method is an error.
@@ -392,7 +392,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 		}
 		statusCode := codes.OK
 		statusDesc := ""
-		// execute the handler
+		// execute the handler // 执行
 		if appErr := fn(ctx, r, replyv.Interface()); appErr != nil {
 			var errStatus *status.Status
 			switch verr := appErr.(type) {

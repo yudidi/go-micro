@@ -34,7 +34,7 @@ type methodType struct {
 
 type service struct {
 	name   string                 // name of service
-	rcvr   reflect.Value          // receiver of methods for the service
+	rcvr   reflect.Value          // receiver of methods for the service // 需要执行的方法名
 	typ    reflect.Type           // type of the receiver
 	method map[string]*methodType // registered methods
 }
